@@ -28,8 +28,8 @@ for i in range(2,100):
     fields["middle_name"] = f"{choice(middle_name)}{i}"
     fields["department"] = randrange(1, 5)
     fields["employment_date"] = "2021-03-22"
-    fields["salary_per_period"] = f"{randrange(1000, 5000)}"
-    fields["salary_total"] = f"{randrange(1000, 500000)}"
+    fields["salary_per_period"] = f"{randrange(10, 50)}"
+    fields["salary_total"] = f"{randrange(0, 500000)}"
     fields["person_rating"] = str(fields["department"])
     fields["manager"] = i-1
     gen_data["fields"] = fields
