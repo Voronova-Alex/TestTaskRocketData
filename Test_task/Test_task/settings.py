@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*=x3mjwuruafm_%))#-9f1&g+@e^#m7q!mdjplyoo5vafp)!nc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'django_filters',
-    'django_celery_beat',
+    'django_seed',
     'Employee_app',
 ]
 
@@ -137,19 +137,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# REDIS related settings
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 
 
-# CELERY BEAT
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-CELERY_BEAT_SCHEDULE = {
-    'paid-every-120-seconds': {
-        'task': 'Employee_app.tasks.salary_total',
-        'schedule': 120.0,
-    },
-}
 DJOSER = {
     "SERIALIZERS": {
         "user_create": "Employee_app.serializers.UserCreateSerializer",  # custom serializer

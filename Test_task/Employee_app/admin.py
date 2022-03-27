@@ -14,6 +14,8 @@ def zero_salary_total(modeladmin, request, queryset):
     queryset.update(salary_total=0)
 
 
+
+
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'middle_name', 'department',
